@@ -30,7 +30,9 @@ int quick_select(int A[], int n, int k){
       j++;
     }
   }
-  int a = j;
+  //以降だめ。5,1,5,3,5,2,5,3,6の時dame
+  
+  int a = j - 1;
   int b;
   for(b = 1; b < (a - 1); b++){
     if(A[b] == pivot){
