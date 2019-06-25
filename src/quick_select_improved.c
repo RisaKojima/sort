@@ -30,10 +30,18 @@ int quick_select(int A[], int n, int k){
       j++;
     }
   }
+  int a = j;
+  int b;
+  for(b = 1; b < (a - 1); b++){
+    if(A[b] == pivot){
+      swap(A+b, A+a);
+      a--;
+    }
+  }
 
-  if(j == k+1) return pivot;
+  if(b < (k + 1) && (k + 1) <= (j + 1)) return pivot;
   else if(j < k+1) return quick_select(A+j, n-j, k-j);
-  else return quick_select(A+1, j-1, k);
+  else return quick_select(A+1, b, k);
 }
 
 
